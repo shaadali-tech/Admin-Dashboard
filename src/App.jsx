@@ -1,20 +1,33 @@
-import React from "react";
-import { Box, Drawer, AppBar, Toolbar, Typography, Card } from "@mui/material";
+import React, { useState, useMemo } from "react";
+import { Box, ThemeProvider, CssBaseline } from "@mui/material";
+
+import GetTheme from "./Componennts/GetTheme";
 import Sidebar from "./Componennts/Sidebar";
 import Navbar from "./Componennts/Navbar";
 import Cards from "./Componennts/Cards";
 
 function App() {
-  return (
-    <Box sx={{ display: "flex" }}>
-      <Sidebar />
+  const [darkMode, setDarkMode] = useState(false);
 
-      {/* Main Content Area */}
-      <Box sx={{ flexGrow: 1 }}>
-        <Navbar />
-        <Cards />
+  const theme = useMemo(
+    () => GetTheme(darkMode ? "dark" : "light"),
+    [darkMode],
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <Box sx={{ display: "flex" }}>
+        <Sidebar />
+
+        {/* Main Content Area */}
+        <Box sx={{ flexGrow: 1 }}>
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <Cards />
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 }
 

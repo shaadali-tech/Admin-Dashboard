@@ -20,9 +20,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "#fff",
-        color: "#000",
-        borderBottom: "1px solid #eee",
+        backgroundColor: "background.paper",
+        color: "text.primary",
+        borderBottom: "1px solid #ddd",
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -36,7 +36,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           sx={{
             display: "flex",
             alignItems: "center",
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "background.default",
             px: 2,
             py: 0.5,
             borderRadius: "8px",
