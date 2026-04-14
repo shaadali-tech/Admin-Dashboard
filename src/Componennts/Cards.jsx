@@ -7,7 +7,7 @@ const Cards = () => {
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h6" sx={{ mb: 2 }}>
-        Welcome to Admin Dashboard 🚀
+        Welcome to Admin Dashboard
       </Typography>
 
       <Overviewcards />

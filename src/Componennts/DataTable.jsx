@@ -73,8 +73,14 @@ export default function DataTable() {
 
   return (
     <>
-      <Box sx={{ height: 400, width: "100%", mt: 3 }}>
-        <DataGrid rows={rows} columns={columns} pageSize={5} />
+      <Box sx={{ height: 400, width: "100%", mt: 3, overflowX: "auto" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          density="compact"
+          sx={{ minWidth: 600 }}
+        />
       </Box>
 
       {/* 🔥 EDIT MODAL */}

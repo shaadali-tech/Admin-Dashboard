@@ -25,9 +25,25 @@ export default function Navbar({ darkMode, setDarkMode }) {
         borderBottom: "1px solid #ddd",
       }}
     >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "auto 1fr auto" },
+          alignItems: "center",
+          gap: 2,
+          py: 1,
+        }}
+      >
         {/* LEFT: Title */}
-        <Typography variant="h6" fontWeight="bold">
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          sx={{
+            flexShrink: 0,
+            fontSize: { xs: "1rem", sm: "1.25rem" },
+            gridColumn: { xs: "1 / -1", md: "1 / 2" },
+          }}
+        >
           Admin Dashboard
         </Typography>
 
@@ -40,7 +56,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
             px: 2,
             py: 0.5,
             borderRadius: "8px",
-            width: "40%",
+            width: "100%",
+            minWidth: 0,
+            gridColumn: { xs: "1 / -1", md: "2 / 3" },
           }}
         >
           <SearchIcon />
@@ -48,13 +66,27 @@ export default function Navbar({ darkMode, setDarkMode }) {
         </Box>
 
         {/* RIGHT: Actions */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            flexWrap: "wrap",
+            justifyContent: { xs: "flex-start", md: "flex-end" },
+            width: { xs: "100%", md: "auto" },
+            gridColumn: { xs: "1 / -1", md: "3 / 4" },
+          }}
+        >
           {/* Dark Mode Toggle */}
           <IconButton onClick={() => setDarkMode(!darkMode)}>
             {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>
 
-          <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+          <Switch
+            checked={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
+            sx={{ display: { xs: "none", sm: "inline-flex" } }}
+          />
 
           {/* Notifications */}
           <IconButton>
